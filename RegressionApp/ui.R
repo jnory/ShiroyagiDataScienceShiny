@@ -4,7 +4,8 @@ shinyUI(
     sidebarLayout(
       sidebarPanel(
         checkboxInput("coloring", "Coloring"),
-        checkboxInput("logy", "Logscale y-axis")
+        checkboxInput("logy", "Logscale y-axis"),
+        checkboxInput("confidence", "Show confidence interval")
       ),
       mainPanel(
         plotOutput("iris_plot")
