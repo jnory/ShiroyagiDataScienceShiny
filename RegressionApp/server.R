@@ -10,7 +10,6 @@ shinyServer(
       }
       c(fun(0), fun(max(mtcars$mpg)))
     })
-    
     output$iris_plot <- renderPlot({
       frame()
       cls <- mtcars$vs + 1
@@ -19,7 +18,6 @@ shinyServer(
       }else{
         col = c("black", "black")
       }
-      
       plot(mtcars$mpg, mtcars$hp, col=col[cls], log=ifelse(input$logy, "y", ""), 
            xlab="Miles/(US) gallon", ylab="Gross horsepower")
       if(input$coloring){
