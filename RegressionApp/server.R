@@ -2,6 +2,10 @@ library(ggplot2)
 
 shinyServer(
   function(input, output) {
+    x <- rep(NA, 32)
+    x[1] <- min(mtcars$mpg)
+    x[2] <- max(mtcars$mpg)
+    
     getline = reactive({
       if(input$logy) {
         line <- lm(log(hp) ~ mpg, data=mtcars)
@@ -10,7 +14,7 @@ shinyServer(
         line <- lm(hp ~ mpg, data=mtcars)
         fun <- function(x) {line$coefficients[1] + line$coefficients[2] * x}
       }
-      c(fun(0), fun(max(mtcars$mpg)))
+      c(fun(min(mtcars$mpg)), fun(max(mtcars$mpg)))
     })
     output$iris_plot <- renderPlot({
       gp <- ggplot(mtcars, aes(mpg, hp))
@@ -27,9 +31,6 @@ shinyServer(
         gp <- gp + scale_y_log10()
       }
       
-      x <- rep(NA, 32)
-      x[1] <- 0
-      x[2] <- max(mtcars$mpg)
       y <- rep(NA, 32)
       y[1:2] <- getline()
       df <- data.frame(x=x, y=y)
