@@ -1,7 +1,7 @@
 shinyUI(
   fluidPage(
-    titlePanel("入力をそのまま出力"),
-    textInput("user_input", "入力"),
+    titlePanel("echo"),
+    textInput("user_input", "Input"),
     textOutput("display_text")
   )
 )
