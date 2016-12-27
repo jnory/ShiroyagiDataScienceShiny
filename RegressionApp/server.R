@@ -16,6 +16,7 @@ shinyServer(
       gp <- ggplot(mtcars, aes(mpg, hp))
       gp <- gp + xlab("Miles/(US) gallon") + ylab("Gross housepower")
       gp <- gp + theme(legend.justification = c(1, 1), legend.position=c(1, 1))
+      gp <- gp + xlim(10, 35)
       if(input$coloring){
         cls <- ifelse(mtcars$vs, "V-engine", "Straight Engine")
         gp <- gp + geom_point(aes(color=cls))
