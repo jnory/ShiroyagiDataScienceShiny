@@ -3,8 +3,8 @@ shinyUI(
     titlePanel("mtcars Regression"),
     sidebarLayout(
       sidebarPanel(
-        checkboxInput("coloring", "色分け"),
-        checkboxInput("logy", "y軸を対数スケール")
+        checkboxInput("coloring", "Coloring"),
+        checkboxInput("logy", "Logscale y-axis")
       ),
       mainPanel(
         plotOutput("iris_plot")

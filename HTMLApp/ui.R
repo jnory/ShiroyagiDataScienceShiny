@@ -3,16 +3,16 @@ shinyUI(
     titlePanel("HTML App"),
     sidebarLayout(
       sidebarPanel(
-        h2("見出し"),
-        p("適当に段落を作れる。", br(), "改行もできる。"),
-        div("ブロック1"),
-        div("スタイルシートを設定", style="font-style: italic; font-weight:bold;")
+        h2("Headings"),
+        p("Creating paragraphs", br(), "enable breaking lines."),
+        div("Block 1"),
+        div("Customizing style sheet.", style="font-style: italic; font-weight:bold;")
       ),
       mainPanel(
-        h2("画像埋め込み"),
+        h2("Embedding an image"),
         img(src="https://shiroyagi.co.jp/images/logo-white-no.png"),
-        hr(), h2("リンク"),
-        a(href="https://shiroyagi.co.jp/", "白ヤギコーポレーション")
+        hr(), h2("Link"),
+        a(href="https://shiroyagi.co.jp/", "Shiroyagi Corporation")
       )
     )
   )
