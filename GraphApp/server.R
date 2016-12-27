@@ -1,17 +1,14 @@
+library(ggplot2)
+
 shinyServer(
   function(input, output) {
     output$iris_plot <- renderPlot({
-      frame()
-      cls <- unclass(iris$Species)
-      levels <- attr(cls, "levels")
+      gp <- ggplot(iris, aes(Petal.Length, Petal.Width))
+      gp <- gp + theme(legend.justification = c(0, 1), legend.position=c(0, 1))
       if(input$coloring){
-        col = c("red", "green", "blue")
+        gp + geom_point(aes(color=Species))
       }else{
-        col = c("black", "black", "black")
-      }
-      plot(iris$Petal.Length,iris$Petal.Width, col=col[cls])
-      if(input$coloring){
-        legend("topleft", legend=levels, col=col, pch="o")
+        gp + geom_point()
       }
     })
   }
