@@ -3,7 +3,7 @@ shinyUI(
     titlePanel("Iris Plot"),
     sidebarLayout(
       sidebarPanel(
-        checkboxInput("coloring", "色分け")
+        checkboxInput("coloring", "Coloring")
       ),
       mainPanel(
         plotOutput("iris_plot")
